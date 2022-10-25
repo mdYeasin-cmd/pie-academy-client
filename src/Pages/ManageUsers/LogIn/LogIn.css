@@ -32,3 +32,13 @@
     top: 11.5px;
     left: -165px;
 }
+
+.social-login-btn {
+    border: none;
+    font-size: 22px;
+    border-radius: 2px;
+}
+
+.register-redirect {
+    text-decoration: none;
+}

@@ -2,6 +2,10 @@ import React from 'react';
 import './LogIn.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { FcGoogle } from 'react-icons/fc';
+import { FaGithub } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+
 
 const LogIn = () => {
     return (
@@ -31,6 +35,21 @@ const LogIn = () => {
 
             <div className="text-center mt-3">
                 <span className="or-line fw-semibold">OR</span>
+            </div>
+
+            <div className="text-center mt-3">
+                <button className="me-3 social-login-btn">
+                    <FcGoogle></FcGoogle>
+                </button>
+                <button className="social-login-btn">
+                    <FaGithub></FaGithub>
+                </button>
+            </div>
+
+            <div>
+                <p className="text-center mt-3">
+                    <small>Don't have an account? <Link className="register-redirect" to="/register">Register</Link></small>
+                </p>
             </div>
 
         </div>
