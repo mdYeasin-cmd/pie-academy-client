@@ -1,0 +1,34 @@
+.form-container {
+    width: 33%;
+}
+
+.login-title {
+    background-color: #eefbf3;
+    color: rgba(0, 0, 0, 0.6);
+    width: 30%;
+    border-radius: 3px;
+}
+
+.or-line {
+    position: relative;
+}
+
+.or-line::after {
+    content: '';
+    width: 160px;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 11.5px;
+    left: 28px;
+}
+
+.or-line::before {
+    content: '';
+    width: 160px;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 11.5px;
+    left: -165px;
+}

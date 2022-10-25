@@ -1,0 +1,32 @@
+.banner-bg {
+    background-image: url('./../../../assets/Banner/Banner.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+.banner-bg::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.banner-title {
+    font-size: 60px;
+}
+
+.banner-text {
+    font-size: 17px;
+}
+
+.banner-btn {
+    font-size: 20px !important;
+    border: none;
+}
