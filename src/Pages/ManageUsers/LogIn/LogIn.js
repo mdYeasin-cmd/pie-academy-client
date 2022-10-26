@@ -12,7 +12,7 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const LogIn = () => {
 
-    const { providerLogIn } = useContext(AuthContext);
+    const { providerLogIn, logIn } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
 
@@ -22,6 +22,13 @@ const LogIn = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+
+        logIn(email, password)
+        .then(result => {
+            console.log(result.user);
+        })
+        .catch(error => console.error(error))
+
     }
 
     const handleSignInWithGoogle = () => {
