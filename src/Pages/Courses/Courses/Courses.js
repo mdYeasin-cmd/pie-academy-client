@@ -8,7 +8,7 @@ const Courses = () => {
     return (
         <div>
             <h2>This is courses page</h2>
-            <p>{user}</p>
+            <p>{user?.email}</p>
         </div>
     );
 };

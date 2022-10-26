@@ -25,6 +25,13 @@
     color: #198754;
 }
 
+.theme-btn {
+    border: none;
+    font-size: 22px;
+    font-weight: 600;
+    background-color: initial;
+}
+
 .account-img{
     display: inline-block;
     width: 40px;

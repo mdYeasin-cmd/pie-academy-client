@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthContextProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
@@ -15,6 +15,7 @@ const LogIn = () => {
     const { providerLogIn, logIn } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
+    const navigate = useNavigate();
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -26,6 +27,7 @@ const LogIn = () => {
         logIn(email, password)
         .then(result => {
             console.log(result.user);
+            navigate('/');
         })
         .catch(error => console.error(error))
 

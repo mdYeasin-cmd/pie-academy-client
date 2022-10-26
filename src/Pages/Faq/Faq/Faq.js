@@ -9,7 +9,7 @@ const Faq = () => {
     return (
         <div>
             <h2>This is FAQ page</h2>
-            <h2>{user}</h2>
+            <h2>{user?.displayName}</h2>
         </div>
     );
 };

@@ -7,6 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContextProvider';
 import './Header.css';
+import { CiLight, CiDark } from 'react-icons/ci';
 
 const Header = () => {
 
@@ -38,21 +39,28 @@ const Header = () => {
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="ms-auto">
+                    <Nav className="ms-auto align-items-center">
                         <Link className="navigation-item" to="/home">Home</Link>
                         <Link className="navigation-item" to="/courses">Courses</Link>
                         <Link className="navigation-item" to="/faq">FAQ</Link>
                         <Link className="navigation-item" to="/blog">Blog</Link>
-                        <Button onClick={handleTheme}>{theme}</Button>
+                        <button className="theme-btn" onClick={handleTheme}>
+                            {
+                                theme === 'Light' ?
+                                    <CiLight />
+                                    :
+                                    <CiDark />
+                            }
+                        </button>
                         {
                             user && user.uid ?
                                 <>
                                     <img
-                                        className="account-img"
+                                        className="account-img mx-3"
                                         src={user?.photoURL} alt=""
                                         title={user?.displayName}
                                     />
-                                    <button onClick={handleLogOut}>Log Out</button>
+                                    <button className="btn btn-success fw-semibold" onClick={handleLogOut}>Log Out</button>
                                 </>
                                 :
                                 <>
