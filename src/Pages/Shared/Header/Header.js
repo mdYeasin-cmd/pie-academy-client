@@ -47,6 +47,11 @@ const Header = () => {
                         {
                             user && user.uid ?
                                 <>
+                                    <img
+                                        className="account-img"
+                                        src={user?.photoURL} alt=""
+                                        title={user?.displayName}
+                                    />
                                     <button onClick={handleLogOut}>Log Out</button>
                                 </>
                                 :
