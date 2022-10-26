@@ -1,0 +1,9 @@
+/* .courses-container {
+    width: 90% !important;
+    margin: 0 auto;
+} */
+
+.all-courses-container {
+    border: 2px solid red;
+    padding-left: 50px !important;
+}
