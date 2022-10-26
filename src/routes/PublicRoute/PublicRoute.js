@@ -1,12 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
 import Blog from "../../Pages/Blog/Blog/Blog";
+import CheckoutPage from "../../Pages/Courses/CheckoutPage/CheckoutPage";
 import CourseDetails from "../../Pages/Courses/CourseDetails/CourseDetails";
 import Courses from "../../Pages/Courses/Courses/Courses";
 import Faq from "../../Pages/Faq/Faq/Faq";
 import Home from "../../Pages/Home/Home/Home";
 import LogIn from "../../Pages/ManageUsers/LogIn/LogIn";
 import Register from "../../Pages/ManageUsers/Register/Register";
+import ErrorPage from "../../Pages/Shared/ErrorPage/ErrorPage";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -29,8 +32,17 @@ export const routes = createBrowserRouter([
             {
                 path: '/courseDetails/:id',
                 element: <CourseDetails></CourseDetails>,
-                loader: ({params}) => {
+                loader: ({ params }) => {
                     return fetch(`http://localhost:5000/courseDetails/${params.id}`);
+                }
+            },
+            {
+                path: '/checkout/:id',
+                element: <PrivateRoute>
+                    <CheckoutPage></CheckoutPage>
+                </PrivateRoute>,
+                loader: ({ params }) => {
+                    return fetch(`http://localhost:5000/courseDetails/${params.id}`); 
                 }
             },
             {
@@ -51,7 +63,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '*',
-                element: <div>404 page</div>
+                element: <ErrorPage></ErrorPage>
             }
         ]
     }

@@ -1,7 +1,6 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import './CourseDetails.css';
-import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
@@ -9,7 +8,7 @@ const CourseDetails = () => {
 
     const courseInfo = useLoaderData();
     console.log(courseInfo);
-    const { course_name, course_price, image, instructor, description, course_level, course_duration, categories, course_curriculum } = courseInfo;
+    const { course_id, course_name, course_price, image, instructor, description, course_level, course_duration, categories, course_curriculum } = courseInfo;
 
     return (
         <div className="container">
@@ -52,7 +51,9 @@ const CourseDetails = () => {
 
                     </div>
                     <div className="mt-4 mb-5 text-center">
-                        <Button variant="success fs-5">Get Premium Access</Button>
+                        <Link to={`/checkout/${course_id}`}>
+                            <Button variant="success fs-5">Get Premium Access</Button>
+                        </Link>
                     </div>
                 </div>
                 <div className="col-lg-3 mt-5">
@@ -60,7 +61,9 @@ const CourseDetails = () => {
                         <Card.Img variant="top" src={image} />
                         <Card.Body>
                             <Card.Title className="fs-1 mb-3">${course_price}</Card.Title>
-                            <Button variant="success fs-5">Get Premium Access</Button>
+                            <Link to={`/checkout/${course_id}`}>
+                                <Button variant="success fs-5">Get Premium Access</Button>
+                            </Link>
                         </Card.Body>
                     </Card>
                 </div>
