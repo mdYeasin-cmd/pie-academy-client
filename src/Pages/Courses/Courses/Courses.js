@@ -13,7 +13,7 @@ const Courses = () => {
     
 
     return (
-        <div>
+        <div className="mt-4 mb-5">
             <div className="row mx-0">
                 <div className="col-lg-3 all-courses-container">
                     {
