@@ -1,5 +1,6 @@
 .form-container {
     width: 33%;
+    border-radius: 8px;
 }
 
 .login-title {
