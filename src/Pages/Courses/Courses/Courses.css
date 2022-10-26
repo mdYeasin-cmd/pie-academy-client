@@ -6,3 +6,7 @@
 .all-courses-container {
     padding-left: 20px !important;
 }
+
+.courses-card-container {
+    padding-right: 20px !important;
+}

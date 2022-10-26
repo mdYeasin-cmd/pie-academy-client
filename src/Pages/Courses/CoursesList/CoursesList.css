@@ -1,9 +1,12 @@
 .courses-name {
+    display: block;
     font-size: 20px;
-    margin: 15px 0;
-}
-
-.courses-list-container h4 {
+    text-decoration: none;
     margin-top: 0;
     margin-bottom: 15px;
 }
+
+/* .courses-list-container .courses-name {
+    margin-top: 0;
+    margin-bottom: 15px;
+} */
