@@ -8,6 +8,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthContextProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import toast from 'react-hot-toast';
 
 
 const LogIn = () => {
@@ -29,9 +30,13 @@ const LogIn = () => {
         logIn(email, password)
         .then(result => {
             console.log(result.user);
+            toast.success('Successfully Logged In your account!!!');
             navigate(from, {replace: true});
         })
-        .catch(error => console.error(error))
+        .catch(error => {
+            console.error(error);
+            toast.error(error.message);
+        })
 
     }
 
@@ -39,23 +44,25 @@ const LogIn = () => {
         providerLogIn(googleProvider)
             .then(result => {
                 console.log(result.user);
+                toast.success('Successfully Logged In your account!!!')
                 navigate(from, {replace: true});
             })
-            .catch(error => console.error(error))
+            .catch(error => toast.error(error.message));
     }
 
     const handleSignInWithGithub = () => {
         providerLogIn(githubProvider)
         .then(result => {
             console.log(result.user);
+            toast.success('Successfully Logged In your account!!!');
             navigate(from, {replace: true});
         })
-        .catch(error => console.error(error))
+        .catch(error => toast.error(error.message));
     }
 
     return (
         <div className="form-container mx-auto shadow p-4 mt-5">
-            <h3 className="login-title text-center mx-auto py-1 mb-3">Log In</h3>
+            <h3 className="login-title text-center w-50 mx-auto py-1 mb-3">Log In</h3>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>

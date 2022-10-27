@@ -13,8 +13,8 @@ const CheckoutPage = () => {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-lg-12">
-                    <Card className="mx-auto mt-5 text-center" style={{ width: '25rem' }}>
+                <div className="col-lg-4 mx-auto">
+                    <Card className="mx-auto mt-5 text-center">
                         <Card.Img variant="top" src={image} />
                         <Card.Body>
                             <Card.Title>{course_name}</Card.Title>
