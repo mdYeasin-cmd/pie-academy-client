@@ -3,20 +3,33 @@ import { Link, useLoaderData } from 'react-router-dom';
 import './CourseDetails.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import ReactToPdf from 'react-to-pdf';
 
 const CourseDetails = () => {
 
     const courseInfo = useLoaderData();
-    console.log(courseInfo);
     const { course_id, course_name, course_price, image, instructor, description, course_level, course_duration, categories, course_curriculum } = courseInfo;
+    const ref = React.createRef();
+    const options = {
+        orientation: 'p',
+        unit: 'in',
+        format: [9, 11]
+    };
 
     return (
         <div className="container">
-            <div className="row">
+            <div className="row" ref={ref}>
                 <div className="col-lg-9 mt-4">
                     <div className="d-flex align-items-center">
                         <h2 className="text-center w-50 mx-auto rounded py-2 px-2 course-title">{course_name}</h2>
-                        <button className="btn btn-success fw-semibold download-btn">Download</button>
+                        <ReactToPdf targetRef={ref} filename="course-curriculum.pdf" options={options}>
+                            {({ toPdf }) => (
+                                <button
+                                    className="btn btn-success fw-semibold download-btn"
+                                    onClick={toPdf}
+                                >Download</button>
+                            )}
+                        </ReactToPdf>
                     </div>
                     <div className="d-flex justify-content-between my-4">
                         <div>
@@ -41,8 +54,8 @@ const CourseDetails = () => {
                         <h5>Course Curriculum</h5>
                         <div>
                             {
-                                course_curriculum.map(curriculumList => <li
-                                    className=""
+                                course_curriculum.map((curriculumList, idx) => <li
+                                    key={idx}
                                 >
                                     {curriculumList}
                                 </li>)
