@@ -25,16 +25,13 @@ const LogIn = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
 
         logIn(email, password)
         .then(result => {
-            console.log(result.user);
             toast.success('Successfully Logged In your account!!!');
             navigate(from, {replace: true});
         })
         .catch(error => {
-            console.error(error);
             toast.error(error.message);
         })
 
@@ -43,7 +40,6 @@ const LogIn = () => {
     const handleSignInWithGoogle = () => {
         providerLogIn(googleProvider)
             .then(result => {
-                console.log(result.user);
                 toast.success('Successfully Logged In your account!!!')
                 navigate(from, {replace: true});
             })
@@ -53,7 +49,6 @@ const LogIn = () => {
     const handleSignInWithGithub = () => {
         providerLogIn(githubProvider)
         .then(result => {
-            console.log(result.user);
             toast.success('Successfully Logged In your account!!!');
             navigate(from, {replace: true});
         })

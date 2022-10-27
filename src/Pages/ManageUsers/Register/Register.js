@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContextProvider';
 
@@ -19,20 +20,19 @@ const Register = () => {
 
         createUser(email, password)
             .then(result => {
-                console.log(result.user);
                 navigate('/');
                 handleUserPorfile({
                     displayName: name,
                     photoURL: photoURL
                 });
             })
-            .catch(error => console.error(error));
+            .catch(error => toast.error(error));
     }
 
     const handleUserPorfile = (profileInfo) => {
         updateUserProfile(profileInfo)
         .then(() => {})
-        .catch(error => console.error(error));
+        .catch(error => toast.error(error));
     }
 
     return (
