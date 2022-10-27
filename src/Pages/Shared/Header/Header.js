@@ -8,6 +8,7 @@ import { AuthContext } from '../../../contexts/AuthContextProvider';
 import './Header.css';
 import { CiLight, CiDark } from 'react-icons/ci';
 import toast from 'react-hot-toast';
+import logo from './../../../assets/Logo/logo.png';
 
 const Header = () => {
 
@@ -34,7 +35,7 @@ const Header = () => {
         <Navbar className="navbar-bg" expand="lg">
             <Container>
                 <Link className="navbar-brand" to="/">
-                    <img className="logo-img" src='logo.png' alt="" />
+                    <img className="logo-img" src={logo} alt="" />
                     <span className="brand-name fw-semibold">Pie Academy</span>
                 </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
