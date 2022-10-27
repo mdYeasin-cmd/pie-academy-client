@@ -33,10 +33,10 @@ const Header = () => {
     return (
         <Navbar className="navbar-bg" expand="lg">
             <Container>
-                <Navbar.Brand>
+                <Link className="navbar-brand" to="/">
                     <img className="logo-img" src='logo.png' alt="" />
                     <span className="brand-name fw-semibold">Pie Academy</span>
-                </Navbar.Brand>
+                </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto align-items-center">
