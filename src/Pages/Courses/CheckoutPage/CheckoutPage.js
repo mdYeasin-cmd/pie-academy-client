@@ -7,7 +7,6 @@ import Card from 'react-bootstrap/Card';
 const CheckoutPage = () => {
 
     const course = useLoaderData();
-    console.log(course)
     const {course_name, course_price, course_duration, image} = course;
 
     return (

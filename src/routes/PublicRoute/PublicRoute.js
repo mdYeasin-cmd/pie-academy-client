@@ -27,13 +27,13 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses',
                 element: <Courses></Courses>,
-                loader: () => fetch('http://localhost:5000/courses')
+                loader: () => fetch('https://pie-academy-server.vercel.app/courses')
             },
             {
                 path: '/courseDetails/:id',
                 element: <CourseDetails></CourseDetails>,
                 loader: ({ params }) => {
-                    return fetch(`http://localhost:5000/courseDetails/${params.id}`);
+                    return fetch(`https://pie-academy-server.vercel.app/courseDetails/${params.id}`);
                 }
             },
             {
@@ -42,7 +42,7 @@ export const routes = createBrowserRouter([
                     <CheckoutPage></CheckoutPage>
                 </PrivateRoute>,
                 loader: ({ params }) => {
-                    return fetch(`http://localhost:5000/courseDetails/${params.id}`); 
+                    return fetch(`https://pie-academy-server.vercel.app/courseDetails/${params.id}`); 
                 }
             },
             {

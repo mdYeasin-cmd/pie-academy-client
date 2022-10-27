@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
-import { Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -8,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContextProvider';
 import './Header.css';
 import { CiLight, CiDark } from 'react-icons/ci';
+import toast from 'react-hot-toast';
 
 const Header = () => {
 
@@ -27,7 +27,7 @@ const Header = () => {
     const handleLogOut = () => {
         logOut()
             .then(() => { })
-            .catch(error => console.error(error));
+            .catch(error => toast.error(error.message));
     }
 
     return (
